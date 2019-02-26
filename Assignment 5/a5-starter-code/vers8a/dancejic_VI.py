@@ -1,12 +1,14 @@
-'''YourUWNetID_VI.py
-(rename this file using your own UWNetID.)
+'''dancejic_VI.py
+Nikola Dancejic
 
 Value Iteration for Markov Decision Processes.
+
+python TOH_MDP.py
 '''
 
 # Edit the returned name to ensure you get credit for the assignment.
 def student_name():
-   return "Your Lastname, Firstname" # For an autograder.
+   return "Dancejic, Nikola" # For an autograder.
 
 Vkplus1 = {}
 Q_Values_Dict = {}
@@ -30,11 +32,25 @@ def one_step_of_VI(S, A, T, R, gamma, Vk):
    amount that the absolute value of any state's value is changed
    during this iteration.
    '''
+   global Q_Values_Dict, Vkplus1
 
-   global Q_Values_Dict
+   if(len(Vkplus1) == 0):
+      for s in S:
+         Vkplus1.update({s:0.0})
+
+   delta_max = 0.0
+   for s in S:
+      maxV = -1.0
+      for a in A:
+         newVal = sum(T(s,a,sp)*(R(s,a,sp)+gamma*Vk[sp]) for sp in S)
+         Q_Values_Dict[(s, a)] = newVal
+         if(newVal > maxV):
+            maxV = newVal
+      Vkplus1[s] = maxV
+      if((Vkplus1[s] - Vk[s]) > delta_max):
+         delta_max = (Vkplus1[s] - Vk[s])
    
-   # return (Vkplus1, delta_max)
-   return (Vk, 0) # placeholder
+   return (Vkplus1, delta_max)
 
 def return_Q_values(S, A):
    '''Return the dictionary whose keys are (state, action) tuples,
@@ -44,6 +60,12 @@ def return_Q_values(S, A):
    However, if no such call has been made yet, use S and A to
    create the answer dictionary, and use 0.0 for all the values.
    '''
+   global Q_Values_Dict
+   if (len(Q_Values_Dict) == 0):
+      for s in S:
+         for a in A:
+            Q_Values_Dict.update({(s,a):0.0})
+
    return Q_Values_Dict # placeholder
 
 Policy = {}
@@ -55,13 +77,23 @@ def extract_policy(S, A):
    can be broken arbitrarily.
    '''
    global Policy
+   Q_values = return_Q_values(S,A)
    Policy = {}
+   for s in S:
+      maxQ = -1.0
+      Action = ""
+      for a in A:
+         if Q_values[(s,a)] > maxQ:
+            maxQ = Q_values[(s,a)]
+            Action = a
+      Policy[s] = Action
+
    # Add code here
    return Policy
 
 def apply_policy(s):
    '''Return the action that your current best policy implies for state s.'''
    global Policy
-   return None # placeholder
+   return Policy[s] # placeholder
 
 

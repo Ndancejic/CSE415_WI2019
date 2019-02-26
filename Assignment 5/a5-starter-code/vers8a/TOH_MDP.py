@@ -35,8 +35,9 @@ Value Iteration.
 
 '''
 
-import YourUWNetID_VI as VI
+import dancejic_VI as VI
 import YourUWNetID_Q_Learn as Q_Learn
+import pdb
 
 from TowersOfHanoi import *
 import TowersOfHanoi
@@ -722,6 +723,7 @@ def set_up_state_space():
   initialize_V_from_QL(0)
   init_q_values(Q_from_VI) # Prevent error msgs if updates are attempted early.
   init_q_values(Q_from_QL,QL=True) # Prevent error msgs if updates are attempted early.
+  pdb.set_trace()
 
 
 def init_q_values(q_values,QL=False):
