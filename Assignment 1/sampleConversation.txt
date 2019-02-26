@@ -1,0 +1,76 @@
+0A: Nick: Hi, I'm Nick the neighborhood coffee guy 
+I'm usually pretty cool, 
+but If I see you drinking Starbucks we can't be friends 
+dancejic@uw.edu is who to contact for complaints. 
+They go straight to my complaint bin over there in the corner
+
+0B: Carl: Hello! My name is Carl and I am a historian from the future. Welcome to the future - what question(s) do you have? Also, if you wish to leave my office and travel back to your time, please just tell me 'bye' or 'adios'! If you have any issues, please contact my boss, Varun Venkatesh, at varunv97@uw.edu
+
+1A: Nick: tell me an interesting fact.
+
+1B: Carl: Here's a random fact: In 2056, the world's coffee supply will run dry due to contamination from the almond industry
+
+2A: Nick: What is your name?
+
+2B: Carl: Hmmm... I will need to look into my records to find out more about my name
+
+3A: Nick: Good to know, name
+
+3B: Carl: ... Why would you say that?
+
+4A: Nick: If you're just gonna stand there, let someone else order.
+
+4B: Carl: Can you elaborate a little more?
+
+5A: Nick: What is your favorite fact?
+
+5B: Carl: Hmmm... I will need to look into my records to find out more about my favorite fact
+
+HERE IT IS RECALLING A TOPIC, BUT COFFEE IS THE ONLY ITEM
+6A: Nick: what do you think about coffee
+
+6B: Carl: Unfortunately, no one drinks coffee in my time - we only drink almond milk now. Do you have any other questions that will not depress you?
+
+QUESTION CYCLE HERE
+7A: Nick: do you like mochas?
+
+7B: Carl: Why do you want to know about that
+
+NEXT QUESTION
+8A: Nick: What kind of coffee will we drink in the future?
+
+8B: Carl: Unfortunately, no one drinks coffee in my time - we only drink almond milk now. Do you have any other questions that will not depress you?
+
+REPEATED QUESTION FROM EARLIER SINCE IT IS A CYCLE
+9A: Nick: What is your favorite fact?
+
+9B: Carl: Hmmm... I will need to look into my records to find out more about my favorite fact
+
+RANDOM PUNT CHOSEN
+10A: Nick: Well this is awkward.
+
+10B: Carl: I need more information otherwise I cannot help you.
+
+11A: Nick: tell me an interesting fact.
+
+11B: Carl: In 2032, President Kim Kardashian signed the 'Instagram tax act' which gave tax cuts to instagram users with over 10 million followers
+
+12A: Nick: tell me an interesting fact.
+
+12B: Carl: Here's a random fact: In 2056, the world's coffee supply will run dry due to contamination from the almond industry
+
+
+THIS IS DIALOG FROM HEARNONE TO DEMO MEMORY:
+
+4A: Nick: Good to know, ice-cream
+HERE THE BOT REMEMBERED THE NAME IT SAVED FOR THE OTHER BOT
+
+4B: Hearnone: Today I like green potatoes.
+
+5A: Nick: Good for you, I like Coffee
+
+5B: Hearnone: Today I like lavender carrots.
+
+HERE IT REMEMBERS THAT IT SAID IT LIKED LAVANDER CARROTS
+6A: Nick: I remember you seemed interested in like lavender carrots, or was that me?
+
