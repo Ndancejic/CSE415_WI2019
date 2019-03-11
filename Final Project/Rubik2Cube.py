@@ -34,6 +34,7 @@ This is a formulation of the 2x2x2 Rubiks Cube
 #</METADATA>
 
 #<COMMON_DATA>
+VERBOSE = False
 #</COMMON_DATA>
 
 #<COMMON_CODE>
@@ -266,7 +267,8 @@ except:
   init_state_list = [['R', 'B', 'R', 'B'], ['O', 'G', 'O', 'G'],
       ['G', 'R', 'G', 'R'], ['B', 'O', 'B', 'O'],
       ['Y', 'Y', 'Y', 'Y'], ['W', 'W', 'W', 'W']]
-  print("Using default initial state list: "+str(init_state_list))
+  if VERBOSE:
+    print("Using default initial state list: "+str(init_state_list))
 
 CREATE_INITIAL_STATE = lambda: State(init_state_list)
 #</INITIAL_STATE>

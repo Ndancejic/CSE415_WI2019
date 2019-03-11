@@ -3,13 +3,13 @@ Nikola Dancejic
 dancejic
 dancejic_EightPuzzleWithHamming.py
 
-This file augments dancejic_Rubik2Cube.py with heuristic information,
+This file augments Rubik2Cube.py with heuristic information,
 so that it can be used by an A* implementation.
 The particular heuristic is my heuristic
 '''
 
-from dancejic_Rubik2Cube import *
-import statistics
+from Rubik2Cube import *
+#import statistics
 
 OPPOSITES = {'GREEN':'BLUE',
              'BLUE':'GREEN',

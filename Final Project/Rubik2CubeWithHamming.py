@@ -1,14 +1,14 @@
 '''
 Nikola Dacejic
 dancejic
-dancejic_Rubik2CubeWithHamming.py
+Rubik2CubeWithHamming.py
 
-This file augments dancejic_Rubik2Cube.py with heuristic information,
+This file augments Rubik2Cube.py with heuristic information,
 so that it can be used by an A* implementation.
 The particular heuristic is hamming
 '''
 
-from dancejic_Rubik2Cube import *
+from Rubik2Cube import *
 
 #the opposites of each color
 OPPOSITES = {'GREEN':'BLUE',
