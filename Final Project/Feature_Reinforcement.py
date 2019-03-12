@@ -17,18 +17,25 @@ import random
 
 #Run conditions
 DEFAULT_START = False #false for random start state
-start_rotations = 15 #depth of start state
+start_rotations = 5 #depth of start state
 initial_w = 1
-episodes = 200
-max_steps = 100
+episodes = 400
+max_steps = 5
 
 #variables
+n = 0.1
+epsilon = 0.2
+gamma = 0.9
+epsilon_decay = 0.95
+gamma_decay = 0.5
+
+'''
 n = 10
 epsilon = 0.2
 gamma = 0.9
 epsilon_decay = 0.99
 gamma_decay = 0.5
-
+'''
 '''
 These seem to work well:
 n = 0.1
@@ -48,16 +55,19 @@ F2 = [2,2,2,2,2,2, # Feature checking if there are 2 tiles of the same color on 
       3,3,3,3,3,3, # Feature checking if there are 3 tiles of the same color on a face
       4,4,4,4,4,4] # Feature checking if there are 4 tiles of the same color on a face
 
+start_condition = None
+
 def SARSA_FA():
     '''
     :return: None
     performs feature based SARSA with Q_value approximation
     '''
-    global Q_Values, weights, n, gamma, episode, max_steps, epsilon
+    global Q_Values, weights, n, gamma, episode, max_steps, epsilon, start_condition
     Generate_F()
     weights = [initial_w]*(len(F) + len(F2))
     print("Finding solution . . .")
     start_state = generate_start()
+    start_condition = start_state
     solution = []
     min_steps = 1000
     solution_found = False
@@ -95,6 +105,7 @@ def SARSA_FA():
             else:
                 max_a = random.choice(cube.directions)
                 for action in cube.directions:
+                    #print(get_Q(s,action))
                     if get_Q(sp,action) > get_Q(sp,max_a):
                         max_a = action
                 ap = max_a
@@ -137,7 +148,7 @@ def get_R(s):
     '''
     global Q_Values
     if(cube.goal_test(s)):
-        return 100
+        return 1000
     max_Q = 0
     for a in cube.directions:
         if get_Q(s,a) > max_Q:
@@ -218,7 +229,29 @@ def generate_start():
         start_state = start_state.move(a).move(a).move(a)
     return start_state
 
+def Optimal_path():
+    '''
+    :return: prints out the path based on Q_values
+    '''
+    s = State(start_condition.b)
+    actions = []
+    print(s.b)
+    i = 0
+    while(not cube.goal_test(s) and i < start_rotations*2):
+        max = random.choice(cube.directions)
+        for action in cube.directions:
+            if get_Q(s,action) > get_Q(s,max):
+                max = action
+        print("Taking action: " + str(max))
+        actions.append(max)
+        s = s.move(max)
+        print(s.b)
+        i+=1
+    print("Actions Taken: " + str(actions))
+
 
 
 SARSA_FA()
+#print(weights)
+Optimal_path()
 
